@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tic Tac Toe</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="main.css" />
+    <!-- imported google font -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+    </style>
+  </head>
+  <body>
+    <!-- header image linked to landing page & embedded video(Youtube - Wii music) -->
+    <header>
+      <iframe
+        width="160"
+        height="110"
+        src="https://www.youtube.com/embed/xTKVcAeTxtE"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <a href="index.html"><img id="main-title" src="images/TTT LOGO.gif" /></a>
+    </header>
+    <!-- main flex box container -->
+    <main>
+      <!-- flex box item for multiplayer img, anchor & title -->
+      <multi class="items">
+        <a href="multi-player.html"
+          ><img src="images/Untitled_Artwork 2.png"
+        /></a>
+        <h3>MULTIPLAYER</h3>
+      </multi>
+      <!-- flex box item for single-player img, anchor & title -->
+      <single class="items">
+        <a href="single-player.html"><img src="images/controller.png" /></a>
+        <h3>SINGLE-PLAYER</h3>
+      </single>
+    </main>
+    <!-- footer with copyright and fake email/phone contact -->
+    <footer>
+      ©Tic.Tac.Toe |
+      <a class="contact" href="mailto:someone@yoursite.com">Email Us</a> |
+      <a class="contact" href="tel:1-800-777-0000">Call us 1-800-777-0000</a>
+    </footer>
+  </body>
 </html>

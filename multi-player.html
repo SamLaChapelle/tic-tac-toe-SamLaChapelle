@@ -1,12 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Multi Player</title>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multi Player</title>
+    <link rel="stylesheet" href="main.css" />
+    <!-- imported google font -->
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+    </style>
+  </head>
+  <body>
+    <!-- header image linked to landing page & embedded video(Youtube - Wii music) -->
+    <header>
+      <iframe
+        width="160"
+        height="110"
+        src="https://www.youtube.com/embed/xTKVcAeTxtE"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+      <a href="index.html"><img id="main-title" src="images/TTT LOGO.gif" /></a>
+    </header>
+    <!-- nav bar with two buttons linked to Home and the Single-player pages -->
+    <nav>
+      <a class="navbar" href="index.html">HOME</a
+      ><a class="navbar" href="single-player.html">SINGLE-PLAYER</a>
+    </nav>
+    <!-- named div tags for the tic tac toe grid -->
+    <!-- main flex container -->
+    <game class="game">
+      <!-- grid -->
+      <board class="container">
+        <!-- each grid space -->
+        <item id="boardborderOne" class="TTT"></item>
+        <item id="boardborderTwo" class="TTT"></item>
+        <item id="boardborderThree" class="TTT"></item>
+        <item id="boardborderFour" class="TTT"></item>
+        <item id="boardborderFive" class="TTT"></item>
+        <item id="boardborderSix" class="TTT"></item>
+        <item id="boardborderSeven" class="TTT"></item>
+        <item id="boardborderEight" class="TTT"></item>
+        <item id="boardborderNine" class="TTT"></item>
+      </board>
+      <!-- buttons with "reset" and "replay" disabled -->
+      <div class="buttons">
+        <button>Start</button>
+        <button disabled>Reset</button>
+        <button disabled>Replay</button>
+      </div>
+    </game>
+    <!-- footer with copyright and fake email/phone contact -->
+    <footer>
+      ©Tic.Tac.Toe |
+      <a class="contact" href="mailto:someone@yoursite.com">Email Us</a> |
+      <a class="contact" href="tel:1-800-777-0000">Call us 1-800-777-0000</a>
+    </footer>
+  </body>
 </html>
