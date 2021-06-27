@@ -5,8 +5,8 @@
 /* BODY */
 body {
   background-image: url("images/TTT background.png");
-  background-size: cover;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* HEADER */
@@ -56,24 +56,38 @@ h3 {
 }
 
 #main-title {
-  width: 400px;
-  height: 100px;
+  width: 30vw;
+  height: 10vh;
 }
 
 /* Landing page flex container */
-main {
+.main-flex {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-top: 250px;
-  height: 595px;
+  height: 85vh;
+  z-index: 2;
 }
 
 /* media property to make the site responsive down to the screen size of 800px */
 @media screen and (max-width: 800px) {
-  main {
+  .main-flex {
     flex-direction: column;
     margin: 0px;
+  }
+  .landing-img {
+    height: 20vh;
+    width: 50vw;
+  }
+  multi.items {
+    padding-top: 10vh;
+  }
+  single.items {
+    padding-top: 0;
+  }
+  iframe {
+    height: 10vh;
+    width: 20vw;
   }
 }
 
@@ -84,6 +98,7 @@ main {
   align-items: center;
   text-decoration: none;
   position: relative;
+  padding-top: 30vh;
   animation-name: bounce;
   animation-duration: 3s;
   animation-timing-function: linear;
@@ -111,8 +126,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 150px;
-  height: 65vh;
+  height: 80vh;
 }
 
 /* Tic Tac Toe Grid */
@@ -120,6 +134,7 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
+  padding-top: 15vh;
 }
 
 /* the board & each flex box item that makes up the board */
@@ -189,7 +204,6 @@ footer {
   background-color: rgba(0, 0, 0, 0.404);
   padding: 10px;
   text-align: center;
-  position: sticky;
 }
 
 .contact {
