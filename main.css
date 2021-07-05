@@ -122,9 +122,10 @@ h3 {
 }
 
 /* Multi & Single player main flex container */
-.game {
+#game {
   display: flex;
   flex-direction: column;
+  position: static;
   align-items: center;
   height: 80vh;
 }
@@ -132,55 +133,99 @@ h3 {
 /* Tic Tac Toe Grid */
 .container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 8vw 8vw 8vw;
+  grid-template-rows: 15vh 15vh 15vh;
   padding-top: 15vh;
+  padding-bottom: 3vh;
 }
 
 /* the board & each flex box item that makes up the board */
 .TTT {
   border: solid black;
-  padding: 60px;
+  padding: 3vw;
 }
 
 .TTT:hover {
   background-color: rgba(0, 0, 0, 0.479);
 }
 
-#boardborderOne {
+#boxOne {
+  font-family: "Press Start 2P", cursive;
+  font-size: 60px;
   border-top: none;
   border-left: none;
 }
 
-#boardborderTwo {
+#boxTwo {
+  font-family: "Press Start 2P", cursive;
+  font-size: 60px;
   border-top: none;
 }
 
-#boardborderThree {
+#boxThree {
+  font-family: "Press Start 2P", cursive;
+  font-size: 60px;
   border-top: none;
   border-right: none;
 }
 
-#boardborderFour {
+#boxFour {
+  font-family: "Press Start 2P", cursive;
+  font-size: 60px;
   border-left: none;
 }
 
-#boardborderSix {
+#boxFive {
+  font-family: "Press Start 2P", cursive;
+  font-size: 60px;
+}
+
+#boxSix {
+  font-family: "Press Start 2P", cursive;
+  font-size: 60px;
   border-right: none;
 }
 
-#boardborderSeven {
+#boxSeven {
+  font-family: "Press Start 2P", cursive;
+  font-size: 60px;
   border-bottom: none;
   border-left: none;
 }
 
-#boardborderEight {
+#boxEight {
+  font-family: "Press Start 2P", cursive;
+  font-size: 60px;
   border-bottom: none;
 }
 
-#boardborderNine {
+#boxNine {
+  font-family: "Press Start 2P", cursive;
+  font-size: 60px;
   border-bottom: none;
   border-right: none;
+}
+
+/* Player Status Bar */
+
+#player-status {
+  font-family: "Press Start 2P", cursive; /* imported google font */
+  text-align: center;
+  background-color: white;
+  border: solid black;
+  border-radius: 7px;
+  padding: 3px;
+}
+
+/* Timer */
+
+#timer {
+  font-family: "Press Start 2P", cursive; /* imported google font */
+  background-color: white;
+  border: solid black;
+  border-radius: 7px;
+  padding: 3px;
+  margin-top: 1vh;
 }
 
 /* Buttons flex box */

@@ -12,7 +12,7 @@
     </style>
   </head>
   <body>
-    <!-- header image linked to landing page & embedded video(Youtube - Wii music) -->
+    <!-- header image linked to landing page & embedded video(YouTube - Wii music) -->
     <header>
       <iframe
         width="160"
@@ -32,24 +32,34 @@
     </nav>
     <!-- named div tags for the tic tac toe grid -->
     <!-- main flex container -->
-    <game class="game">
+    <game id="game">
       <!-- grid -->
       <board class="container">
         <!-- each grid space -->
-        <item id="boardborderOne" class="TTT"></item>
-        <item id="boardborderTwo" class="TTT"></item>
-        <item id="boardborderThree" class="TTT"></item>
-        <item id="boardborderFour" class="TTT"></item>
-        <item id="boardborderFive" class="TTT"></item>
-        <item id="boardborderSix" class="TTT"></item>
-        <item id="boardborderSeven" class="TTT"></item>
-        <item id="boardborderEight" class="TTT"></item>
-        <item id="boardborderNine" class="TTT"></item>
+        <item id="boxOne" class="TTT"></item>
+        <item id="boxTwo" class="TTT"></item>
+        <item id="boxThree" class="TTT"></item>
+        <item id="boxFour" class="TTT"></item>
+        <item id="boxFive" class="TTT"></item>
+        <item id="boxSix" class="TTT"></item>
+        <item id="boxSeven" class="TTT"></item>
+        <item id="boxEight" class="TTT"></item>
+        <item id="boxNine" class="TTT"></item>
       </board>
+      <!-- Player Status Bar -->
+      <div>
+        <h4 id="player-status">Player Status</h4>
+      </div>
+      <!-- Timer -->
+      <div id="timer">
+        <label id="minutes">00</label>
+        <label id="colon">:</label>
+        <label id="seconds">00</label>
+      </div>
       <!-- buttons with "reset" and "replay" disabled -->
       <div class="buttons">
-        <button>Start</button>
-        <button disabled>Reset</button>
+        <button id="start-button">Start</button>
+        <button id="reset-button">Reset</button>
         <button disabled>Replay</button>
       </div>
     </game>
@@ -59,5 +69,6 @@
       <a class="contact" href="mailto:someone@yoursite.com">Email Us</a> |
       <a class="contact" href="tel:1-800-777-0000">Call us 1-800-777-0000</a>
     </footer>
+    <script src="multiP.js"></script>
   </body>
 </html>
