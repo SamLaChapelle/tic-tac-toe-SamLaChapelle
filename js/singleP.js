@@ -52,28 +52,55 @@ function gameSinglePlay() {
           if (playerStatus.textContent === `X's Turn`) {
             boardCell.textContent = "X";
             playerStatus.textContent = `Computer's Turn`;
+            //calls winner function
+            winnerSingle();
             computerTurn();
           }
         }
       }
-      //calls winner function
-      winnerSingle();
     });
   });
 }
 
+let gameOver = false;
+
 /* -----COMPUTER AI FUNCTION----- */
 
 function computerTurn() {
-  let compNum = Math.floor(Math.random() * 8);
-  let compCell = boardCellArray[compNum];
-  if (compCell.textContent) {
-    computerTurn();
-  } else {
-    setInterval(() => {
+  //guard clause checking if gameOver variable is false then proceed with computer function, if true then force return a break out of the function
+  if (!gameOver) {
+    //variable holding the callback function for the Timeout interval
+    let compInt = () => {
       compCell.textContent = "O";
+      //calls winner function
+      winnerSingle();
+      //if statement to check for player status and return nothing to force a break and pull the computer out of the call back function
+      if(playerStatus.textContent === "Computer Wins!") {
+        return
+      }
       playerStatus.textContent = `X's Turn`;
-    }, 1000);
+    };
+    let compTurn;
+    //declaring two variables to set up the array for all cells on the board and having the computer randomly choose one
+    let compNum = Math.floor(Math.random() * 8);
+    let compCell = boardCellArray[compNum];
+    //if a cell is already filled with an X or O then rerun the function to make the computer choose another spot
+    if (compCell.textContent) {
+      computerTurn();
+    } else if (!compCell.textContent) {
+      //checking the player status to clear the Timeout when there is a winner
+      if (playerStatus.textContent.includes("X Wins!")) {
+        clearTimeout(compTurn);
+        playerStatus.textContent = "X Wins!";
+      } else if (playerStatus.textContent.includes("Computer Wins!")) {
+        clearTimeout(compTurn);
+        playerStatus.textContent = "Computer Wins!";
+      } else {
+        compTurn = setTimeout(compInt, 1000);
+      }
+    }
+  } else {
+    return;
   }
 }
 
@@ -109,6 +136,8 @@ function winnerSingle() {
     cellThree.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   } else if (
     cellOne.textContent === "O" &&
     cellTwo.textContent === "O" &&
@@ -122,9 +151,11 @@ function winnerSingle() {
     cellThree.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   }
   //checks cells 4,5 and 6 textContent for "X", if yes then player X wins, else if "O" player O wins
-  if (
+  else if (
     cellFour.textContent === "X" &&
     cellFive.textContent === "X" &&
     cellSix.textContent === "X"
@@ -137,6 +168,8 @@ function winnerSingle() {
     cellSix.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   } else if (
     cellFour.textContent === "O" &&
     cellFive.textContent === "O" &&
@@ -150,9 +183,11 @@ function winnerSingle() {
     cellSix.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   }
   //checks cells 7,8 and 9 textContent for "X", if yes then player X wins, else if "O" player O wins
-  if (
+  else if (
     cellSeven.textContent === "X" &&
     cellEight.textContent === "X" &&
     cellNine.textContent === "X"
@@ -165,6 +200,8 @@ function winnerSingle() {
     cellNine.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   } else if (
     cellSeven.textContent === "O" &&
     cellEight.textContent === "O" &&
@@ -178,11 +215,13 @@ function winnerSingle() {
     cellNine.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   }
 
   /* -----VERTICAL WIN CASES----- */
   //checks cells 1,4 and 7 textContent for "X", if yes then player X wins, else if "O" player O wins
-  if (
+  else if (
     cellOne.textContent === "X" &&
     cellFour.textContent === "X" &&
     cellSeven.textContent === "X"
@@ -195,6 +234,8 @@ function winnerSingle() {
     cellSeven.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   } else if (
     cellOne.textContent === "O" &&
     cellFour.textContent === "O" &&
@@ -208,9 +249,11 @@ function winnerSingle() {
     cellSeven.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   }
   //checks cells 2,5 and 8 textContent for "X", if yes then player X wins, else if "O" player O wins
-  if (
+  else if (
     cellTwo.textContent === "X" &&
     cellFive.textContent === "X" &&
     cellEight.textContent === "X"
@@ -223,6 +266,8 @@ function winnerSingle() {
     cellEight.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   } else if (
     cellTwo.textContent === "O" &&
     cellFive.textContent === "O" &&
@@ -236,9 +281,11 @@ function winnerSingle() {
     cellEight.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   }
   //checks cells 3,6 and 9 textContent for "X", if yes then player X wins, else if "O" player O wins
-  if (
+  else if (
     cellThree.textContent === "X" &&
     cellSix.textContent === "X" &&
     cellNine.textContent === "X"
@@ -251,6 +298,8 @@ function winnerSingle() {
     cellNine.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   } else if (
     cellThree.textContent === "O" &&
     cellSix.textContent === "O" &&
@@ -263,11 +312,13 @@ function winnerSingle() {
     cellNine.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   }
 
   /* -----DIAGONAL WIN CASES----- */
   //checks cells 3,5 and 7 textContent for "X", if yes then player X wins, else if "O" player O wins
-  if (
+  else if (
     cellThree.textContent === "X" &&
     cellFive.textContent === "X" &&
     cellSeven.textContent === "X"
@@ -280,6 +331,8 @@ function winnerSingle() {
     cellSeven.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   } else if (
     cellThree.textContent === "O" &&
     cellFive.textContent === "O" &&
@@ -293,9 +346,11 @@ function winnerSingle() {
     cellSeven.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   }
   //checks cells 1,5 and 9 textContent for "X", if yes then player X wins, else if "O" player O wins
-  if (
+  else if (
     cellOne.textContent === "X" &&
     cellFive.textContent === "X" &&
     cellNine.textContent === "X"
@@ -308,6 +363,8 @@ function winnerSingle() {
     cellNine.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   } else if (
     cellOne.textContent === "O" &&
     cellFive.textContent === "O" &&
@@ -321,14 +378,15 @@ function winnerSingle() {
     cellNine.style.color = "yellow";
     //resetting the reset button to disabled = false
     resetButton.disabled = false;
+    gameOver = true;
+    gameSingleTimer();
   }
 }
 
 /* -----TIMER----- */
 
-//count variable assigned to 0
 let count = 0;
-
+let intervalId;
 //timer div targeted through Id and assigned in to timer variable
 let timer = document.getElementById("timer");
 //gameTimer function housing two other functions
@@ -338,8 +396,15 @@ function gameSingleTimer() {
   let seconds = document.getElementById("seconds");
   //assigning count to 0
   let count = 0;
-  //setting interval to call countUp function and tick every second
-  let intervalId = setInterval(countUp, 1000);
+  //if there is no interval Id then set the interval Id
+  if (!intervalId) {
+    intervalId = setInterval(countUp, 1000);
+  }
+  //checks if the player status includes "Wins", if true then clearInterval
+  if (playerStatus.textContent.includes("Wins!")) {
+    clearInterval(intervalId);
+    return;
+  }
   //countUp function
   function countUp() {
     //add 1 to count
@@ -357,10 +422,6 @@ function gameSingleTimer() {
       } else {
         return numVal;
       }
-    }
-    //checks if the player status includes "Wins", if true then clearInterval
-    if (playerStatus.textContent.includes("Wins!")) {
-      clearInterval(intervalId);
     }
   }
 }
